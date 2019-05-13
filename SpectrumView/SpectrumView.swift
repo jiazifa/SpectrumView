@@ -54,7 +54,7 @@ public enum SpectrumLayoutSide {
     
     //MARK:lifecycle
     
-    public func append(_ value: Float) -> Void {
+    public func append(_ value: Float) {
         self.levels.insert(NSNumber.init(value: value), at: 0)
         self.lineLayers.insert(self.getLineLayer(), at: 0)
         
@@ -68,7 +68,7 @@ public enum SpectrumLayoutSide {
         }
     }
     /// 结束
-    public func stop() -> Void {
+    public func stop() {
         self.displayLink?.invalidate()
         self.displayLink = nil
     }
@@ -90,7 +90,7 @@ extension SpectrumView {
 
 extension SpectrumView {
     //MARK:layout
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         updateLines()
     }
